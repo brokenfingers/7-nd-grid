@@ -1,0 +1,129 @@
+body {
+    position: relative;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 80% 1fr;
+    gap: 10px;
+    grid-template-areas:
+        '. header .'
+        '. hero .'
+        '. services .'
+        '. freelance .'
+        '. testimonials .'
+        '. footer .'
+        '. nav .';
+}
+
+body > * {
+    padding: 30px;
+    background-color: yellow;
+    border: 2px solid #ddd;
+}
+
+header {
+    grid-area: header;
+}
+
+.hero {
+    grid-area: hero;
+}
+
+.logo {
+    grid-area: logo;
+    display: none;
+    object-fit: cover;
+    width: 100px;
+    height: 100px;
+}
+.services {
+    grid-area: services;
+}
+
+.ads {
+    display: none;
+    grid-area: ads;
+}
+
+.socials {
+    grid-area: soc;
+    display: none;
+}
+
+.freelance {
+    grid-area: freelance;
+}
+
+.testimonials {
+    grid-area: testimonials;
+}
+
+.nav {
+    position: absolute;
+    grid-area: nav;
+}
+
+footer {
+    grid-area: footer;
+}
+
+@media (min-width: 600px) {
+    body {
+        grid-template-areas:
+            '. header .'
+            '. hero .'
+            '. services .'
+            '. testimonials .'
+            '. freelance .'
+            '. footer .';
+    }
+    .nav {
+        display: none;
+    }
+
+    header {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 'logo soc';
+    }
+    .logo {
+        justify-self: start;
+        align-self: center;
+        grid-area: logo;
+        display: inline-block;
+    }
+    .socials {
+        justify-self: end;
+        align-self: center;
+        display: inline-block;
+    }
+}
+
+@media (min-width: 900px) {
+    body {
+        grid-template-columns: 1fr 600px 200px 1fr;
+        grid-template-areas:
+            '. header header.'
+            '. hero hero .'
+            '. testimonials ads .'
+            '. services ads .'
+            '. freelance ads .'
+            '. footer footer.';
+    }
+    header {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-areas: 'logo nav soc';
+    }
+
+    .nav {
+        display: flex;
+
+        position: absolute;
+        top: 0;
+        transform: translate(-50%, 50%);
+        left: 50%;
+    }
+    .ads {
+        display: flex;
+    }
+}
